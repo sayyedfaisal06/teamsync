@@ -9,6 +9,7 @@ body,
 }
 
 .cl-userButtonPopoverFooter,
+.cl-organizationSwitcherPopoverFooter,
 .cl-footer {
   display: none;
 }
