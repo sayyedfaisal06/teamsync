@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { StarIcon } from "lucide-react";
+import { HeartIcon } from "lucide-react";
 import React from "react";
 
 type FooterProps = {
@@ -19,6 +19,14 @@ const Footer = ({
   onClick,
   title,
 }: FooterProps) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+    event.preventDefault();
+    onClick();
+  };
+
   return (
     <div className="relative bg-white p-3">
       <p className="text-[13px] truncate max-w-[calc(100% - 20px)]">{title}</p>
@@ -27,17 +35,17 @@ const Footer = ({
       </p>
       <button
         className={cn(
-          "opacity-0 group-hover:opacity-100 transition absolute top-3 right-3 text-muted-foreground hover:text-blue-600",
+          "opacity-0 group-hover:opacity-100 transition absolute top-3 right-3 text-muted-foreground hover:text-red-600",
           {
             "cursor-not-allowed opacity-75": disabled,
           }
         )}
         disabled={disabled}
-        onClick={onClick}
+        onClick={handleClick}
       >
-        <StarIcon
-          className={cn("w-4 h-4", {
-            "fill-blue-600 text-blue-600": isFavourite,
+        <HeartIcon
+          className={cn("w-5 h-5", {
+            "fill-red-600 text-red-600": isFavourite,
           })}
         />
       </button>
