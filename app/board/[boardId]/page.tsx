@@ -1,10 +1,14 @@
 import React from "react";
 import Canvas from "./_components/canvas";
 
-type BoardIdPageProps = {};
+type BoardIdPageProps = {
+  params: {
+    boardId: string;
+  };
+};
 
-const BoardIdPage = (props: BoardIdPageProps) => {
-  return <Canvas />;
+const BoardIdPage = ({ params }: BoardIdPageProps) => {
+  return <Canvas boardId={params.boardId} />;
 };
 
 export default BoardIdPage;
